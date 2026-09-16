@@ -1376,6 +1376,8 @@ footer {
 footer p { margin: 0 0 .4rem; }
 footer p:last-child { margin-bottom: 0; }
 footer .credit { font-weight: 600; color: var(--fg-2); }
+footer .disclaimer { font-size: var(--text-xs); }
+footer .copyright { font-size: var(--text-xs); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
@@ -1647,7 +1649,9 @@ footer .credit { font-weight: 600; color: var(--fg-2); }
   {final_html}
   <footer>
     <p>Cross-check critical decisions with primary exchange data. This dashboard never invents market prices or options metrics.</p>
-    <p class="credit">Developed by Kamakshaiah Nelatur</p>
+    <p class="credit">Developed by Kamakshaiah Nelatur &middot; Hobby Investor</p>
+    <p class="disclaimer">Personal project, not investment advice, not affiliated with any employer.</p>
+    <p class="copyright">&copy; 2026 Kamakshaiah Nelatur</p>
   </footer>
 </main>
 <script>{js}</script>
