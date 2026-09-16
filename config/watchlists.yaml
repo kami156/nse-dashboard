@@ -1,0 +1,121 @@
+# Sample NSE watchlists (config only — no personal broker holdings)
+
+core_portfolio:
+  - RELIANCE.NS
+  - TCS.NS
+  - HDFCBANK.NS
+  - INFY.NS
+  - ICICIBANK.NS
+  - BHARTIARTL.NS
+  - ITC.NS
+  - SBIN.NS
+  - LT.NS
+  - AXISBANK.NS
+
+swing_candidates:
+  - ADANIENT.NS
+  - BEL.NS
+  - BAJFINANCE.NS
+  - SUNPHARMA.NS
+  - M&M.NS
+  - MARUTI.NS
+  - TITAN.NS
+  - POWERGRID.NS
+  - NTPC.NS
+  - COALINDIA.NS
+
+options_watchlist:
+  - NIFTY
+  - BANKNIFTY
+  - RELIANCE.NS
+  - HDFCBANK.NS
+  - TCS.NS
+  - INFY.NS
+  - ICICIBANK.NS
+  - SBIN.NS
+
+ai_stocks:
+  - TCS.NS
+  - INFY.NS
+  - HCLTECH.NS
+  - TECHM.NS
+  - WIPRO.NS
+  - TATAELXSI.NS
+  - PERSISTENT.NS
+  - COFORGE.NS
+  - MPHASIS.NS
+  - OFSS.NS
+
+# Universe used for breadth / opportunity discovery
+nifty50:
+  - ADANIENT.NS
+  - ADANIPORTS.NS
+  - APOLLOHOSP.NS
+  - ASIANPAINT.NS
+  - AXISBANK.NS
+  - BAJAJ-AUTO.NS
+  - BAJFINANCE.NS
+  - BAJAJFINSV.NS
+  - BPCL.NS
+  - BHARTIARTL.NS
+  - BRITANNIA.NS
+  - CIPLA.NS
+  - COALINDIA.NS
+  - DIVISLAB.NS
+  - DRREDDY.NS
+  - EICHERMOT.NS
+  - GRASIM.NS
+  - HCLTECH.NS
+  - HDFCBANK.NS
+  - HDFCLIFE.NS
+  - HEROMOTOCO.NS
+  - HINDALCO.NS
+  - HINDUNILVR.NS
+  - ICICIBANK.NS
+  - ITC.NS
+  - INDUSINDBK.NS
+  - INFY.NS
+  - JSWSTEEL.NS
+  - KOTAKBANK.NS
+  - LT.NS
+  - M&M.NS
+  - MARUTI.NS
+  - NTPC.NS
+  - NESTLEIND.NS
+  - ONGC.NS
+  - POWERGRID.NS
+  - RELIANCE.NS
+  - SBILIFE.NS
+  - SBIN.NS
+  - SUNPHARMA.NS
+  - TCS.NS
+  - TATACONSUM.NS
+  - BEL.NS
+  - TATASTEEL.NS
+  - TECHM.NS
+  - TITAN.NS
+  - ULTRACEMCO.NS
+  - UPL.NS
+  - WIPRO.NS
+
+midcap_sample:
+  - PERSISTENT.NS
+  - COFORGE.NS
+  - TATAELXSI.NS
+  - VOLTAS.NS
+  - PIIND.NS
+  - DIXON.NS
+  - POLYCAB.NS
+  - AUBANK.NS
+  - FEDERALBNK.NS
+  - INDHOTEL.NS
+  - PAGEIND.NS
+  - GODREJCP.NS
+  - DABUR.NS
+  - MARICO.NS
+  - BERGEPAINT.NS
+  - HAVELLS.NS
+  - CROMPTON.NS
+  - CUMMINSIND.NS
+  - ASHOKLEY.NS
+  - TVSMOTOR.NS

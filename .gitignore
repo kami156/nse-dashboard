@@ -1,0 +1,14 @@
+# Generated output (cache/snapshots/scratch) - not published, only docs/index.html is
+output/
+
+# Publish target is tracked explicitly
+!docs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets (currently unused per README, but never commit if present)
+.env
