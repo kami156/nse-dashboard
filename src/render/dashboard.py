@@ -1427,7 +1427,7 @@ footer .copyright { font-size: var(--text-xs); }
 }
 """
 
-    js = """
+    js = r"""
 (function(){
   // Initial theme is already applied by the blocking <head> script (avoids
   // a flash of the wrong theme); this IIFE just wires up the toggle button.
