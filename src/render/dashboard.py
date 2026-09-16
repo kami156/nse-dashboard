@@ -1373,6 +1373,9 @@ footer {
   padding: 2.5rem 0 3rem; margin-top: 2.5rem;
   border-top: 1px solid var(--border);
 }
+footer p { margin: 0 0 .4rem; }
+footer p:last-child { margin-bottom: 0; }
+footer .credit { font-weight: 600; color: var(--fg-2); }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
@@ -1643,7 +1646,8 @@ footer {
   {changes_html}
   {final_html}
   <footer>
-    Cross-check critical decisions with primary exchange data. This dashboard never invents market prices or options metrics.
+    <p>Cross-check critical decisions with primary exchange data. This dashboard never invents market prices or options metrics.</p>
+    <p class="credit">Developed by Kamakshaiah Nelatur</p>
   </footer>
 </main>
 <script>{js}</script>
