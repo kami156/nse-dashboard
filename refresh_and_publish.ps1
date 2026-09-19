@@ -4,7 +4,13 @@
 # before Task Scheduler runs this unattended.
 
 $ErrorActionPreference = "Stop"
-$RepoDir = "C:\stock Market\NSE_Dashboard"
+# Resolve the repo root from this script's own location, so the publisher can only
+# ever act on the copy it lives in. The hard-coded path above silently published a
+# different tree once the project was also copied to C:\NSE_Dashboard.
+$RepoDir = $PSScriptRoot
+if (-not (Test-Path (Join-Path $RepoDir "generate_dashboard.py"))) {
+    throw "refresh_and_publish.ps1 must sit in the repo root - no generate_dashboard.py in $RepoDir"
+}
 $LogFile = Join-Path $RepoDir "output\refresh.log"
 
 function Log($msg) {

@@ -26,7 +26,7 @@ from src.data.fetchers import INDEX_MAP, MarketFetcher
 from src.data.news_macro import economic_dashboard, fetch_news_intelligence
 from src.data.nse_reference import fetch_fii_dii_activity, resolve_universe, to_yahoo_symbol
 from src.insights.briefing import build_insights, executive_lists, one_minute_briefing
-from src.render.dashboard import render_html
+from src.render.v2.dashboard import render_html
 from src.storage.snapshots import SnapshotStore, detect_changes
 
 
@@ -217,11 +217,30 @@ def generate_dashboard(
         return (sma50 > sma200) and (t.get("momentum_3m_pct", 0) > 10)
 
     # Watchlist scorecards replaced with Time Horizon Screeners
+    horizon_screens = {
+        "Long Term Opportunities": [c for c in all_cards if is_long_term(c)],
+        "Swing Trading": [c for c in all_cards if is_swing(c)],
+        "Weekly Opportunities": [c for c in all_cards if is_weekly(c)],
+        "Monthly Opportunities": [c for c in all_cards if is_monthly(c)],
+    }
     wl_cards = {
-        "Long Term Opportunities": sorted([c for c in all_cards if is_long_term(c)], key=lambda x: x.get("overall_conviction", 0), reverse=True)[:20],
-        "Swing Trading": sorted([c for c in all_cards if is_swing(c)], key=lambda x: x.get("overall_conviction", 0), reverse=True)[:20],
-        "Weekly Opportunities": sorted([c for c in all_cards if is_weekly(c)], key=lambda x: x.get("overall_conviction", 0), reverse=True)[:20],
-        "Monthly Opportunities": sorted([c for c in all_cards if is_monthly(c)], key=lambda x: x.get("overall_conviction", 0), reverse=True)[:20],
+        name: sorted(cards, key=lambda x: x.get("overall_conviction", 0), reverse=True)[:20]
+        for name, cards in horizon_screens.items()
+    }
+
+    # Deep horizon cohorts for the closing deliverables. The 20-row screener tables
+    # above are too shallow to fill a 10-name list once names already listed are
+    # removed, which is what made Top 10 Swing collapse into Top 10 Conviction.
+    _COHORT_FIELDS = (
+        "symbol", "name", "rating", "overall_conviction", "confidence_pct",
+        "momentum_score", "fundamental_score", "valuation_score", "time_horizon",
+    )
+    horizon_cohorts = {
+        name: [
+            {k: c.get(k) for k in _COHORT_FIELDS}
+            for c in sorted(cards, key=lambda x: x.get("overall_conviction", 0), reverse=True)[:60]
+        ]
+        for name, cards in horizon_screens.items()
     }
 
     # Opportunity discovery across the entire universe
@@ -276,6 +295,7 @@ def generate_dashboard(
         "breadth": breadth,
         "sector_rotation": sector_rotation,
         "watchlists": wl_cards,
+        "horizon_cohorts": horizon_cohorts,
         "options": options,
         "opportunities": opportunities,
         "opportunity_cards": [
